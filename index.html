@@ -7,15 +7,15 @@
 
   <style>
     :root {
-      --bg: #050505;
-      --card-bg: rgba(10, 10, 10, 0.96);
-      --border: rgba(255, 255, 255, 0.08);
-      --accent: #ffffff;
-      --muted: #b5b5b5;
-      --muted-2: #7a7a7a;
-      --shadow-soft: 0 22px 55px rgba(0, 0, 0, 0.9);
-      --radius-lg: 26px;
-      --radius-md: 13px;
+      --bg: #f3f4f6;
+      --card-bg: #ffffff;
+      --border: rgba(15, 23, 42, 0.08);
+      --accent: #111111;
+      --muted: #6b7280;
+      --muted-2: #9ca3af;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.18);
+      --radius-lg: 24px;
+      --radius-md: 14px;
       --transition-fast: 160ms ease-out;
     }
 
@@ -33,9 +33,8 @@
       min-height: 100vh;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background:
-        radial-gradient(circle at top, #333 0, #050505 55%, #000 100%);
-      color: #fff;
+      background: radial-gradient(circle at top, #ffffff 0, #f3f4f6 55%, #e5e7eb 100%);
+      color: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -53,10 +52,10 @@
       position: absolute;
       inset: -40px;
       background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 65%),
-        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.06), transparent 60%);
-      opacity: 0.9;
-      filter: blur(16px);
+        radial-gradient(circle at top left, rgba(0, 0, 0, 0.04), transparent 65%),
+        radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.03), transparent 60%);
+      opacity: 1;
+      filter: blur(18px);
       z-index: -2;
     }
 
@@ -75,9 +74,9 @@
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(148, 163, 184, 0.55);
       mix-blend-mode: soft-light;
-      opacity: 0.25;
+      opacity: 0.2;
       pointer-events: none;
     }
 
@@ -86,10 +85,10 @@
       z-index: 1;
     }
 
-    /* Logo Alanı */
+    /* Logo */
     .logo-area {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .logo-main {
@@ -99,80 +98,53 @@
       gap: 6px;
     }
 
-    .logo-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.55);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .logo-wordmark {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
+    .logo-img {
+      height: 56px;
+      width: auto;
+      display: block;
     }
 
     .title {
       text-align: center;
       font-size: 18px;
       font-weight: 600;
-      margin-top: 6px;
-      margin-bottom: 8px;
+      margin-top: 10px;
+      margin-bottom: 2px;
+      color: #111111;
+    }
+
+    .call-subtitle {
+      text-align: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: #111111;
+      margin-bottom: 10px;
     }
 
     .subtitle {
       text-align: center;
       font-size: 13px;
       color: var(--muted);
-      margin-bottom: 20px;
-      line-height: 1.5;
+      margin-bottom: 18px;
+      line-height: 1.6;
     }
 
     /* Butonlar */
     .btn-group {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .btn-row {
-      display: flex;
-      gap: 10px;
-      width: 100%;
-    }
-
-    .btn-main {
-      flex: 1;
-    }
-
-    .btn-extra {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 4px;
+      gap: 12px;
+      margin-bottom: 12px;
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 14px;
+      display: block;
+      width: 100%;
       border-radius: var(--radius-md);
-      border: 1px solid transparent;
+      border: 1px solid rgba(15, 23, 42, 0.35);
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
-      color: #fff;
       cursor: pointer;
       position: relative;
       overflow: hidden;
@@ -183,54 +155,60 @@
         background var(--transition-fast),
         color var(--transition-fast),
         opacity var(--transition-fast);
-      background: transparent;
-    }
-
-    .btn span.icon {
-      font-size: 16px;
-    }
-
-    .btn-primary {
+      padding: 16px 16px;
       background: #ffffff;
-      color: #000000;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.9);
+      color: #111111;
     }
 
-    .btn-primary::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        120deg,
-        rgba(0, 0, 0, 0.5),
-        transparent 40%,
-        transparent 60%,
-        rgba(0, 0, 0, 0.5)
-      );
-      opacity: 0;
-      transition: opacity 180ms ease-out;
-      pointer-events: none;
+    .btn-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
     }
 
-    .btn-outline {
-      background: rgba(0, 0, 0, 0.6);
-      border-color: rgba(255, 255, 255, 0.4);
-      color: #ffffff;
+    .btn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.04);
+      font-size: 18px;
+      color: #111111;
+      overflow: hidden;
     }
 
+    /* Buraya kendi ikon görselini koyabilirsin:
+       <span class="btn-icon">
+         <img src="katalog-icon.svg" alt="" style="height:22px;" />
+       </span>
+    */
+
+    .btn-label {
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* Hover efekti: beyazdan siyaha dönüşüm */
     .btn:hover {
+      background: #111111;
+      color: #ffffff;
       transform: translateY(-1px);
-      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.85);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.28);
+      border-color: #111111;
+    }
+
+    .btn:hover .btn-icon {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
     }
 
     .btn:active {
       transform: translateY(1px) scale(0.99);
       box-shadow: none;
-      opacity: 0.9;
-    }
-
-    .btn-primary:hover::before {
-      opacity: 1;
+      opacity: 0.94;
     }
 
     .note-title {
@@ -251,7 +229,7 @@
     }
 
     .divider {
-      border-top: 1px dashed rgba(255, 255, 255, 0.18);
+      border-top: 1px dashed rgba(148, 163, 184, 0.6);
       margin: 10px 0 14px;
     }
 
@@ -261,9 +239,10 @@
       margin-bottom: 8px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #ffffff;
+      color: #111111;
     }
 
+    /* Servis alanı (aç/kapa) */
     .service-wrapper {
       overflow: hidden;
       max-height: 0;
@@ -276,7 +255,7 @@
     }
 
     .service-wrapper.open {
-      max-height: 700px; /* yeterince büyük */
+      max-height: 700px;
       opacity: 1;
       margin-top: 8px;
     }
@@ -298,13 +277,13 @@
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: #f0f0f0;
+      color: #111111;
     }
 
     .service-value a {
-      color: #ffffff;
+      color: #111111;
       text-decoration: none;
-      border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
+      border-bottom: 1px dotted rgba(15, 23, 42, 0.5);
     }
 
     .service-value a:hover {
@@ -326,19 +305,20 @@
       font-size: 12px;
       text-decoration: none;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      color: #ffffff;
-      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(15, 23, 42, 0.3);
+      color: #111111;
+      background: #ffffff;
       transition:
         background var(--transition-fast),
         border-color var(--transition-fast),
-        transform var(--transition-fast);
+        transform var(--transition-fast),
+        color var(--transition-fast);
     }
 
     .map-links a:hover {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
       transform: translateY(-1px);
     }
 
@@ -353,12 +333,13 @@
       margin-top: 6px;
       text-align: center;
       font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-transform: none;
+      color: #111111;
     }
 
     .brand-link a {
-      color: #ffffff;
+      color: #111111;
       text-decoration: none;
     }
 
@@ -368,30 +349,24 @@
 
     @media (max-width: 480px) {
       .card {
-        padding: 20px 14px 22px;
+        padding: 22px 14px 24px;
         border-radius: 20px;
       }
-      .logo-icon {
-        width: 48px;
-        height: 48px;
-        font-size: 20px;
-      }
-      .logo-wordmark {
-        font-size: 19px;
-        letter-spacing: 0.18em;
+      .logo-img {
+        height: 52px;
       }
       .title {
         font-size: 16px;
+      }
+      .call-subtitle {
+        font-size: 15px;
       }
       .subtitle {
         font-size: 12px;
       }
       .btn {
         font-size: 13px;
-        padding: 11px 10px;
-      }
-      .btn-row {
-        flex-direction: column;
+        padding: 16px 12px;
       }
     }
 
@@ -400,7 +375,7 @@
         padding: 32px;
       }
       .card {
-        padding: 28px 24px 26px;
+        padding: 28px 24px 28px;
       }
     }
   </style>
@@ -414,67 +389,87 @@
         <!-- Logo -->
         <header class="logo-area">
           <div class="logo-main">
-            <!-- İstersen buraya gerçek logo görselini de koyabilirsin -->
-            <img src="https://raw.githubusercontent.com/elcengiz/bester-qr/refs/heads/main/bester-beyaz.png" alt="Bester Logo" style="height:48px;" /> 
-            <!-- <div class="logo-icon">B</div>
-            <div class="logo-wordmark">BESTER</div>-->
+            <img
+              src="https://raw.githubusercontent.com/elcengiz/bester-qr/refs/heads/main/bester-siyah.png"
+              alt="Bester Logo"
+              class="logo-img"
+            />
           </div>
         </header>
 
         <!-- Başlıklar -->
         <main>
-          <h1 class="title">Bester Bilgi Menüsü</h1>
+          <h1 class="title">Çağrı Merkezi - 0850 262 8786</h1>
+          <p class="call-subtitle"></p>
+
           <p class="subtitle">
-            Ürün kataloğu ve yetkili servis bilgilerimize bu ekran üzerinden ulaşabilirsiniz.
+            Bester ürün kataloğu ve yetkili servis bilgilerimize bu ekran üzerinden ulaşabilirsiniz.
           </p>
 
-          <!-- Butonlar -->
+          <!-- Butonlar (alt alta) -->
           <div class="btn-group">
-            <div class="btn-row">
-              <!-- Katalog -->
-              <a
-                class="btn btn-primary btn-main"
-                href="bester-2025-katalog.pdf"
-                target="_blank"
-                rel="noopener"
-              >
-                <span class="icon">📘</span>
-                <span>Bester Kataloğunu Aç</span>
-              </a>
+            <!-- Katalog -->
+            <a
+              class="btn"
+              href="bester-2025-katalog.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="btn-inner">
+                <span class="btn-icon">
+                  📘
+                  <!-- İkon görseli kullanmak istersen:
+                  <img src="katalog-icon.svg" alt="" style="height:22px;" />
+                  -->
+                </span>
+                <span class="btn-label">Bester kataloğunu aç</span>
+              </span>
+            </a>
 
-              <!-- Servis (aç/kapa) -->
-              <button
-                class="btn btn-outline btn-main btn-toggle-servis"
-                type="button"
-              >
-                <span class="icon">🛠️</span>
-                <span>Servis Bilgilerini Gör</span>
-              </button>
-            </div>
+            <!-- Servis (aç/kapa) -->
+            <button
+              class="btn btn-toggle-servis"
+              type="button"
+            >
+              <span class="btn-inner">
+                <span class="btn-icon">
+                  🛠️
+                  <!-- Buraya da kendi servis ikonunu ekleyebilirsin -->
+                </span>
+                <span class="btn-label">Servis bilgilerini gör</span>
+              </span>
+            </button>
 
-            <!-- İleride ekstra buton eklemek istersen buraya ekleyebilirsin -->
-            <!--
-            <div class="btn-extra">
-              <a class="btn btn-outline" href="#" target="_blank">Garanti Şartları</a>
-            </div>
+            <!-- ÖRNEK: Ekstra buton (şimdilik yorum satırında)
+            <a class="btn" href="#" target="_blank">
+              <span class="btn-inner">
+                <span class="btn-icon">
+                  ⓘ
+                </span>
+                <span class="btn-label">Garanti şartları</span>
+              </span>
+            </a>
             -->
-          </div>
 
-          <p class="note-title">Not Bölümü</p>
+            
+          </div>
+          <!-- 
+          <p class="note-title">not bölümü</p>
           <p class="note">
             QR kodunuz sabittir, bu sayfanın içeriği gerektiğinde güncellenebilir.
           </p>
+          -->
 
           <!-- Servis Alanı (başta kapalı) -->
           <div id="servis-wrapper" class="service-wrapper">
             <div class="divider"></div>
 
             <section id="servisler" aria-label="Servis Bilgileri">
-              <h2 class="section-heading">Yetkili Servis Bilgileri</h2>
+              <h2 class="section-heading">yetkili servis bilgileri</h2>
 
               <div class="service-section">
                 <div class="service-item">
-                  <div class="service-label">Servis Adı</div>
+                  <div class="service-label">Servis adı</div>
                   <div class="service-value">
                     Yasin Şeker – Şeker Soğutma
                   </div>
@@ -496,32 +491,32 @@
                 </div>
 
                 <div class="service-item">
-                  <div class="service-label">Konum &amp; Yol Tarifi</div>
+                  <div class="service-label">Konum &amp; yol tarifi</div>
                   <div class="map-links">
                     <a
                       href="https://maps.google.com/?q=Şeker+Soğutma+Kadıköy"
                       target="_blank"
                       rel="noopener"
                     >
-                      Haritada Göster
+                      Haritada göster
                     </a>
                     <a
                       href="https://www.google.com/maps/dir/?api=1&destination=Şeker+Soğutma+Kadıköy"
                       target="_blank"
                       rel="noopener"
                     >
-                      Yol Tarifi Al
+                      Yol tarifi al
                     </a>
                   </div>
                 </div>
               </div>
             </section>
           </div>
-
+          <!-- 
           <p class="footnote">
             Bilgiler periyodik olarak güncellenebilir. Lütfen en güncel servis ve
             katalog detayları için bu ekranı tekrar ziyaret edin.
-          </p>
+          </p>-->
 
           <p class="brand-link">
             <a href="https://bester.com.tr" target="_blank" rel="noopener">
